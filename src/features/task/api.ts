@@ -28,3 +28,19 @@ export async function deleteTask(id: TaskId): Promise<void> {
 export async function getTasks(): Promise<Task[]> {
   return (await fetch(API_URL)).json();
 }
+
+export async function updateTask(task: Task): Promise<Task> {
+  const res = await fetch(`${API_URL}/${task.id}`, {
+    method: 'PUT',
+    body: JSON.stringify(task),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  if (res.status >= 400) {
+    const { error } = await res.json();
+    throw error;
+  }
+
+  return res.json();
+}

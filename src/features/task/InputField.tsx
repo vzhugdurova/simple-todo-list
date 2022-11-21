@@ -1,6 +1,7 @@
 import { styled } from "@mui/material";
 import { ChangeEvent, FocusEvent } from "react";
-import { Field } from "./Form";
+import { Field } from "./types/TaskInputField";
+
 
 type InputFieldProps = Field & {
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;

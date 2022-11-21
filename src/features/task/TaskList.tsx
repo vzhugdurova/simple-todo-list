@@ -26,6 +26,7 @@ const ListWithAllTasks = () => {
     
   return (
     <div>
+      <h2>Tasks List</h2>
       <HeaderWrapperStyled>
         <p style={{ width: "20%" }}>Type</p>
         <p style={{ width: "50%" }}>Description</p>

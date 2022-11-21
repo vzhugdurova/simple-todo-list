@@ -1,19 +1,13 @@
 import { Container } from "@mui/material";
-import Form from "../task/Form";
-import TaskList from '../task/TaskList';
-import { Provider } from 'react-redux';
-import store from '../../store';
+import AddEditForm from "../task/AddEdit";
+import TaskList from "../task/TaskList";
 
 const MainPage = () => {
   return (
-    <Provider store={store}>
-      <Container sx={{ pt: 5, textAlign: "left" }}>
-        <h2>Add Task</h2>
-        <Form />
-        <h2>Tasks List</h2>
-        <TaskList />
-      </Container>
-    </Provider>
+    <Container sx={{ pt: 5, textAlign: "left" }}>
+      <AddEditForm />
+      <TaskList />
+    </Container>
   );
 };
 

@@ -4,6 +4,7 @@ import TasksAction from "./types/TaskAction";
 
 const initialState: TasksState = {
   tasks: [],
+  isEditMood: null,
 };
 
 const tasksReducer: Reducer<TasksState, TasksAction> = (
@@ -39,12 +40,17 @@ const tasksReducer: Reducer<TasksState, TasksAction> = (
       };
     }
 
+    case "SET_EDIT_MOOD": {
+      return { ...state, isEditMood: payload };
+    }
+
     case "TASK_UPDATED": {
       return {
         ...state,
         tasks: state.tasks.map((task) =>
           task.id === payload.id ? payload : task
         ),
+        editMood: null,
       };
     }
 

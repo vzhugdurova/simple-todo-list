@@ -27,3 +27,8 @@ export const taskUpdated = (task: Task): TasksAction => ({
   type: 'TASK_UPDATED',
   payload: task,
 });
+
+export const setEditMood = (editMood: Task | null): TasksAction => ({
+  type: 'SET_EDIT_MOOD',
+  payload: editMood,
+});

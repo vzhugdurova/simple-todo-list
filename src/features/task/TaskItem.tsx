@@ -1,18 +1,21 @@
 import { IconButton, styled } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
-import EditIcon from '@mui/icons-material/Edit';
+import EditIcon from "@mui/icons-material/Edit";
 import Task, { TaskId } from "./types/Task";
 import { useDispatch } from "react-redux";
 import * as api from "./api";
-import { taskDeleted } from "./actionCreators";
+import { taskDeleted, setEditMood } from "./actionCreators";
 import { useCallback } from "react";
+
 
 export interface TaskProps {
   task: Task;
 }
 
+
 const TaskItem = ({ task }: TaskProps) => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+
   const handleTaskRemove = useCallback(
     (id: TaskId) => {
       api.deleteTask(id).then(() => {
@@ -28,12 +31,19 @@ const TaskItem = ({ task }: TaskProps) => {
         <p style={{ width: "20%", fontSize: 20 }}>{task.type}</p>
         <p style={{ width: "50%" }}>{task.description}</p>
         <p style={{ width: "20%" }}>{task.timeToDo}</p>
-        <div style={{ width: "10%", display: "flex", justifyContent: "space-around"}}>
-        <IconButton
+        <div
+          style={{
+            width: "10%",
+            display: "flex",
+            justifyContent: "space-around",
+          }}
+        >
+          <IconButton
             aria-label="close"
             sx={{
               color: (theme) => theme.palette.grey[500],
             }}
+            onClick={() => dispatch(setEditMood(task))}
           >
             <EditIcon />
           </IconButton>

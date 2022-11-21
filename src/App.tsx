@@ -1,9 +1,9 @@
-import React from 'react';
+import MainPage from "./features/main/main";
 
 function App() {
   return (
     <div className="App">
-      x
+      <MainPage />
     </div>
   );
 }
